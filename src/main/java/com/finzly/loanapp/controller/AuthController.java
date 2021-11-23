@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "*")
 @RequestMapping("auth")
 public class AuthController {
 
@@ -62,7 +62,7 @@ public class AuthController {
 			@ApiResponse(code = 403, message = "forbidden") })
 	public ResponseEntity<AuthDto> login(@RequestBody User user) {
 		try {
-			// if user is not authenticated will throw exception 
+			// if user is not authenticated will throw exception
 			authService.authenticateUser(user);
 
 			logger.info("User is authenticated");
