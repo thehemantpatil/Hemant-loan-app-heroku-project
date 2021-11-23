@@ -6,7 +6,15 @@ import java.util.List;
 public class LoanConstraintDto {
 
 	private double interestRate = 10;
-	private List paymentTerm = new ArrayList(List.of("Evenly", "Interest"));
+	private List paymentTerm = new ArrayList();
+	
+	
+	
+	public LoanConstraintDto() {
+		super();
+		paymentTerm.add("Evenly");
+		paymentTerm.add("Interest");
+	}
 
 	public double getInterestRate() {
 		return interestRate;
