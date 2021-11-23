@@ -7,8 +7,7 @@ import java.util.Map;
 public class LoanInfo {
 	private long loanId;
 
-	private Map<String, Integer> paymentFreq = new HashMap<String, Integer>(
-			Map.of("1 Month", 1, "3 Month", 3, "6 Month", 6, "12 Month", 12));
+	private Map<String, Integer> paymentFreq = new HashMap<String, Integer>();
 	private Double loanTenure;
 	private int totalMonths;
 	private double interestRate;
@@ -26,6 +25,10 @@ public class LoanInfo {
 
 	public LoanInfo(Map loan) {
 		super();
+		paymentFreq.put("1 Month", 1);
+		paymentFreq.put("3 Month", 3);
+		paymentFreq.put("6 Month", 6);
+		paymentFreq.put("12 Month", 12);
 		this.loanTenure = Double.parseDouble(loan.get("loanTenure").toString());
 		this.totalMonths = (int) (loanTenure * 12);
 		this.interestRate = Double.parseDouble(loan.get("interestRate").toString());
